@@ -1,0 +1,181 @@
+
+
+
+:root{
+    --first-color: #fff;
+    --font-primary: 'Press Start 2P'
+}
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+html{
+    overscroll-behavior: none;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+
+
+/* =======Portada Home========l */
+
+.home-1{
+    background-image: url(../img/portadas/portada-1.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+nav{
+    width: 100%;
+}
+
+nav ul{
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: start;
+}
+
+nav img{
+    width: 80%;
+    padding: 1.4rem;
+}
+
+.titulo{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: var(--first-color);
+    margin-top: 10vh;
+
+}
+
+.titulo h1{
+    font-size: 3rem;
+    padding: 1rem;
+    font-family: var(--font-primary);
+}
+
+.titulo h2{
+    font-size: 1rem;
+    padding: 1rem;
+}
+
+
+/* ============Juegos============= */
+
+.juegos{
+    padding: 2rem 8rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 10vh;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+
+}
+
+.juegos div{
+    width: 50%;
+    display: flex;
+    justify-content: center;
+}
+
+
+.juegos img{
+    width: 50%;
+}
+
+
+/* ===============HOME 2============ */
+
+.home-2{
+    background-color: #000;
+    padding: 2rem 8rem;
+}
+
+
+.home-2 h1{
+    color: #fff;
+    font-weight: 700;
+    align-items: center;
+    margin-top: 20vh;
+    font-size: 2.5rem;
+    margin-bottom: 20vh;
+    font-family: var(--font-primary);
+}
+
+
+.home-2 div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.bacteria-1{
+    width: 100%;
+    align-items: end !important;
+    margin-top: 5vh;
+    justify-content: end !important;
+}
+
+.bacteria-1 img{
+    width: 50%;
+    position: absolute;
+}
+
+
+
+
+/* =========Nuevos Juegos 2========== */
+
+.nuevos-juegos{
+    background-color: #000;
+    background-image: url(../img/portadas/portada-2.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    padding: 2rem 8rem;
+}
+
+
+.nuevos-juegos div{
+    width: 25%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.nuevos-juegos img{
+    width: 100%;
+}
+
+.circulo{
+    position: relative;
+    top: -15vh
+}
+
+.galaxia-1{
+    position: relative;
+    top: -10vh;
+}
+
+.galaxia-2{
+    position: relative;
+    top: -10vh;
+}
+
