@@ -1,4 +1,4 @@
-gsap.to("#div1", {
+var animacionDiv1 = gsap.to("#div1", {
     duration: 2,
     y: "-20px",
     repeat: -1,
@@ -14,7 +14,9 @@ gsap.to("#div2", {
     ease: "power1.inOut"
 });
 
-gsap.to("#bacteria1", {
+// Asignaciones de variables para para la animar posteriormente
+
+var animacionBacteria1 = gsap.to("#bacteria1", {
     duration: 2,
     x: "100px",
     rotation: gsap.utils.random(-360, 360),
@@ -52,14 +54,18 @@ gsap.from("#titulo", {
 
 
 // ====================Cargar Los Juegos==========
-
 function cargarJuego() {
     // Obtén los elementos
     var div1 = document.getElementById('div1');
     var div2 = document.getElementById('div2');
+    var body = document.body;
 
-    // Cambia el contenido del div1 a un iframe que carga el juego
-    div1.innerHTML = '<iframe src="/game/index.html" width="100%" height="100%"></iframe>';
+    // Pausa las animaciones
+    animacionDiv1.pause();
+    animacionBacteria1.pause();
+
+    // Cambia el contenido del div1 a un iframe que carga el juego y agrega el botón de cierre
+    div1.innerHTML = '<iframe src="/game/index.html" width="100%" height="100%"></iframe><i id="cerrar" class="fas fa-times" style="position: absolute; top: 10px; right: 10px; cursor: pointer;"></i>';
 
     // Cambia el estilo del div1 para que ocupe el 100% de la pantalla
     div1.style.width = '100vw';
@@ -67,4 +73,36 @@ function cargarJuego() {
 
     // Oculta el div2
     div2.style.display = 'none';
+
+    // Bloquea el desplazamiento de la página
+    body.style.overflow = 'hidden';
+
+    // Agrega un controlador de eventos al cuerpo para permitir el desplazamiento cuando se hace clic fuera del div del juego
+    body.addEventListener('click', function(event) {
+        if (event.target === body) {
+            body.style.overflow = 'auto';
+        }
+    });
+
+    // Usa setTimeout para retrasar la adición del controlador de eventos hasta que el DOM se haya actualizado
+   setTimeout(function() {
+    document.getElementById('cerrar').addEventListener('click', function() {
+        // Cambia el contenido del div1 de nuevo a la imagen original
+        div1.innerHTML = '<img src="ruta/a/la/imagen/original.png" alt="" onclick="cargarJuego()">';
+
+        // Restaura el estilo original del div1
+        div1.style.width = 'auto';
+        div1.style.height = 'auto';
+
+        // Muestra el div2
+        div2.style.display = 'block';
+
+        // Permite el desplazamiento de la página
+        body.style.overflow = 'auto';
+
+        // Reanuda las animaciones
+        animacionDiv1.restart();
+        animacionBacteria1.restart();
+    });
+}, 0);
 }
