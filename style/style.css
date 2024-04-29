@@ -69,6 +69,7 @@ nav img{
 .titulo h2{
     font-size: 1rem;
     padding: 1rem;
+    font-family: 'Courier New', Courier, monospace;
 }
 
 
@@ -179,3 +180,18 @@ nav img{
     top: -10vh;
 }
 
+
+footer{
+    background: #000;
+    color: #fff;
+    padding: 10rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+footer p{
+    font-size: 1.5rem;
+    font-family: var(--font-primary);
+}

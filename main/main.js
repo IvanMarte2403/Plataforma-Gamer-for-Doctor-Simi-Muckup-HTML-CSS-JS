@@ -48,3 +48,23 @@ gsap.from("#titulo", {
     repeat: -1,
     yoyo: true
 });
+
+
+
+// ====================Cargar Los Juegos==========
+
+function cargarJuego() {
+    // Obtén los elementos
+    var div1 = document.getElementById('div1');
+    var div2 = document.getElementById('div2');
+
+    // Cambia el contenido del div1 a un iframe que carga el juego
+    div1.innerHTML = '<iframe src="/game/index.html" width="100%" height="100%"></iframe>';
+
+    // Cambia el estilo del div1 para que ocupe el 100% de la pantalla
+    div1.style.width = '100vw';
+    div1.style.height = '100vh';
+
+    // Oculta el div2
+    div2.style.display = 'none';
+}
