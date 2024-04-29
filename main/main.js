@@ -106,3 +106,47 @@ function cargarJuego() {
     });
 }, 0);
 }
+
+function cargarJuego2() {
+    // Obtén los elementos
+    var div1 = document.getElementById('div1');
+    var div2 = document.getElementById('div2');
+    var body = document.body;
+
+    // Pausa las animaciones
+    animacionDiv1.pause();
+    animacionBacteria1.pause();
+
+    // Cambia el contenido del div1 a un iframe que carga el segundo juego y agrega el botón de cierre
+    div2.innerHTML = '<iframe src="/game2/index.html" width="100%" height="100%"></iframe><i id="cerrar2" class="fas fa-times" style="position: absolute; top: 10px; right: 10px; cursor: pointer;"></i>';
+
+    // Cambia el estilo del div1 para que ocupe el 100% de la pantalla
+    div2.style.width = '100vw';
+    div2.style.height = '100vh';
+
+    // Oculta el div2
+    div1.style.display = 'none';
+
+    // Bloquea el desplazamiento de la página
+    body.style.overflow = 'hidden';
+
+    // Agrega un controlador de eventos al botón de cierre
+    document.getElementById('cerrar2').addEventListener('click', function() {
+        // Cambia el contenido del div1 de nuevo a la imagen original
+        div2.innerHTML = '<img src="ruta/a/la/imagen/original.png" alt="" onclick="cargarJuego2()">';
+
+        // Restaura el estilo original del div1
+        div2.style.width = 'auto';
+        div2.style.height = 'auto';
+
+        // Muestra el div2
+        div2.style.display = 'block';
+
+        // Permite el desplazamiento de la página
+        body.style.overflow = 'auto';
+
+        // Reanuda las animaciones
+        animacionDiv1.restart();
+        animacionBacteria1.restart();
+    });
+}
